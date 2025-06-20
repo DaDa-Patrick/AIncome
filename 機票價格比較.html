@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>機票價格比較</title>
+  <style>
+    body { font-family: "Microsoft JhengHei", sans-serif; padding: 20px; }
+    table { border-collapse: collapse; margin-top: 20px; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; vertical-align: top; }
+    th { background: #f4f4f4; }
+    .highlight { background: #ffeb3b; }
+    label, input, button { margin-right: 10px; }
+    button { padding: 6px 12px; }
+  </style>
+</head>
+<body>
+
+  <h2>機票價格比較工具</h2>
+
+  <label>預期天數（天）：<input type="number" id="days" value="7" min="1"></label>
+  <button id="calcBtn">計算所有去程日期結果</button>
+
+  <table id="resultTable" style="display:none;">
+    <!-- 內容由 JS 動態生成 -->
+  </table>
+
+  <script>
+    const data = {
+      "華航": { depart: {"6/24":9234,"6/25":9234,"6/26":11626,"6/27":9234,"6/28":10626,"6/29":10626}, ret: {"7/05":9471,"7/06":14404,"7/07":9471,"7/08":9471,"7/09":9471,"7/10":9471} },
+      "星宇": { depart: {"6/24":10190,"6/25":10772,"6/26":10190,"6/27":10190,"6/28":10190,"6/29":10190,"6/30":10190}, ret: {"7/06":10426,"7/07":11008,"7/08":10426,"7/09":10426,"7/10":10426,"7/11":10426,"7/12":11008} },
+      "長榮": { depart: {"6/24":10190,"6/25":10190,"6/26":10190,"6/27":10190,"6/28":11849,"6/29":11849,"6/30":11849}, ret: {"7/06":12220,"7/07":10426,"7/08":10426,"7/09":10426,"7/10":10426,"7/11":10426,"7/12":10426} }
+    };
+
+    // 所有去程日期
+    const allDepDates = Array.from(new Set(
+      Object.values(data).flatMap(a=>Object.keys(a.depart))
+    )).sort((a,b)=>new Date(`2025-${a}`)-new Date(`2025-${b}`));
+
+    document.getElementById('calcBtn').addEventListener('click', ()=>{
+      const days = parseInt(document.getElementById('days').value,10);
+      const table = document.getElementById('resultTable');
+      table.style.display = 'table';
+      table.innerHTML = '';
+
+      // 表頭
+      const header = document.createElement('tr');
+      header.innerHTML = '<th>去程日期</th>' +
+        Object.keys(data).map(air => `<th>${air}</th>`).join('');
+      table.appendChild(header);
+
+      // 每個去程日期
+      allDepDates.forEach(depDate=>{
+        // 計算各家最優 return
+        const row = document.createElement('tr');
+        const cells = [];
+        row.appendChild(Object.assign(document.createElement('td'),{textContent:depDate}));
+
+        // 儲存各家總價
+        const totals = [];
+        const results = {};
+        for(const air of Object.keys(data)){
+          const depPrice = data[air].depart[depDate];
+          let best=null;
+          Object.entries(data[air].ret).forEach(([rtDate,rtPrice])=>{
+            const diff = (new Date(`2025-${rtDate}`)-new Date(`2025-${depDate}`))/(1000*60*60*24);
+            if(diff===days){ const total=depPrice+rtPrice;
+              if(!best||total<best.total) best={depPrice,rtDate,rtPrice,total};
+            }
+          });
+          results[air]=best;
+          totals.push(best?best.total:Infinity);
+        }
+        // 找出最低
+        const minTotal = Math.min(...totals);
+
+        // 生成 cell
+        Object.keys(data).forEach(air=>{
+          const best = results[air];
+          const td = document.createElement('td');
+          if(best){
+            td.innerHTML = `去 ${best.depPrice}<br>回 ${best.rtDate} ${best.rtPrice}<br>總 ${best.total}`;
+            if(best.total===minTotal) td.classList.add('highlight');
+          } else td.textContent='—';
+          row.appendChild(td);
+        });
+
+        table.appendChild(row);
+      });
+    });
+  </script>
+
+</body>
+</html>
