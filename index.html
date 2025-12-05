@@ -1,106 +1,244 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIncome 支援中心</title>
-    <style>
-      :root {
-        --theme-blue:      #ABD6F2;
-        --theme-indigo:    #4D6EA3;
-        --theme-navy-gray: #4D4F5C;
-        --theme-coral:     #EC9194;
-        --theme-pink:      #F6CFD1;
-        --theme-cream:     #F4E5E1;
-        --theme-light-gray:#F2F1F1;
-      }
-      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; line-height: 1.6; color: #333; }
-      h1 { text-align: center; color: #2c3e50; }
-      h2 { color: #34495e; margin-top: 1.5em; }
-      a { color: #3498db; text-decoration: none; }
-      a:hover { text-decoration: underline; }
-      .faq dt { font-weight: bold; margin-top: 1em; }
-      .faq dd { margin: 10px 0 1em 20px; }
-      footer { text-align: center; margin-top: 2em; font-size: 0.9em; color: #777; }
-      .faq dt {
-        position: relative;
-        padding: 8px 20px 8px 12px;
-        border-radius: 4px;
-        background-color: var(--theme-blue);
-        color: var(--theme-navy-gray);
-      }
-      .faq dt:hover {
-        background-color: var(--theme-indigo);
-        color: #fff;
-      }
-      .faq dt::after {
-        content: "▶";
-        position: absolute;
-        right: 12px;
-        transition: transform 0.2s ease;
-        font-size: 1.2em;
-      }
-      .faq dt.expanded::after {
-        transform: rotate(90deg);
-      }
-      .faq dd {
-        display: none;
-        margin-left: 20px;
-        background-color: var(--theme-light-gray);
-        border-left: 3px solid var(--theme-indigo);
-        padding: 8px 12px;
-        border-radius: 4px;
-      }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIncome 支援中心</title>
+  <meta name="description" content="AIncome - AI 智慧記帳 App 支援中心。查看常見問題、下載 iOS 捷徑、取得幫助。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <h1>AIncome 支援中心</h1>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <img src="logo.webp" alt="AIncome Logo" class="hero-logo">
+      <h1>AIncome</h1>
+      <p class="tagline">AI 智慧記帳，簡單說、輕鬆記</p>
+      <a href="https://apps.apple.com/app/id6745864525" target="_blank" class="app-store-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" />
+        </svg>
+        <div class="btn-text">
+          <small>立即下載</small>
+          <span>App Store</span>
+        </div>
+      </a>
+    </div>
+  </div>
 
-  <p>歡迎來到 AIncome 支援中心，如果在使用過程中有任何問題，請參考下方常見問題（FAQ）或直接聯絡我們。</p>
-
-  <h2>快速捷徑</h2>
-  <p>您可以透過以下 iOS 捷徑，快速從控制中心或主畫面直接進入記帳功能：</p>
-  <ul>
-    <li><a href="https://www.icloud.com/shortcuts/4952a350810541fda8a1ebd538ff8a2a" target="_blank">語音記帳捷徑</a></li>
-    <li><a href="https://www.icloud.com/shortcuts/644358c3fb5c4cc38bc56d1fb9a91ee2" target="_blank">拍帳單記帳捷徑</a></li>
-    <li><a href="https://www.icloud.com/shortcuts/61458471dd7d4a70a8d92d95f8fe2489" target="_blank">文字記帳捷徑</a></li>
-  </ul>
-
-  <h2>常見問題</h2>
-  <dl class="faq" id="faqList">
-    <dt>如何申請 API 金鑰？</dt>
-    <dd>請前往 <a href="https://platform.openai.com/api-keys" target="_blank">https://platform.openai.com/api-keys</a>，登入或註冊後即可查看或建立新的 API 金鑰。<br>API 金鑰僅在申請成功時顯示一次，請務必妥善保存，如遺失需重新申請。<br>切勿將金鑰公開或托管於公開程式庫，以免造成資安風險。如有遺失或疑似外洩，請立即於 OpenAI 平台上刪除並重建新金鑰。<br><strong>啊大家申請完記得要儲錢進去ㄛ</strong></dd>
-    <dt>這個 App 一個月要花多少錢？</dt>
-    <dd>如果你一個月呼叫 500 次「自然語言記帳」，再加上「分析」和「報告」各一次，大約只要美金 1 塊左右，也就是新台幣 30 元出頭。還可以透過批次呼叫（一句話講多一點商品）省更多，最多可壓到不到新台幣 20 元喔！</dd>
-    <dt>如何使用自然語言記帳？</dt>
-    <dd>在輸入框中輸入「今天午餐花 150 元」，即可自動解析並記錄。</dd>
-    <dt>為何無法解析句子？</dt>
-    <dd>請確認句子包含完整的「品項」「金額」資訊，或嘗試長按「+」手動新增。</dd>
-    <dt>如何匯出 CSV？</dt>
-    <dd>在「設定」頁面點選「匯出 CSV 檔案」，下載即可。</dd>
-    <dt>如何設定訂閱自動扣款？</dt>
-    <dd>進入「設定 > 訂閱」新增訂閱名稱及金額，App 會自動每月新增訂閱支出。</dd>
-  </dl>
-
-  <h2>聯絡我們</h2>
-  <p>如果上述 FAQ 無法解決您的問題，請透過以下方式聯絡我們：</p>
-  <ul>
-    <li>電子郵件：<a href="mailto:itjustforfb@gmail.com">itjustforfb@gmail.com</a></li>
-  </ul>
-
-  <h2>隱私權政策</h2>
-  <p>我們重視您的隱私，請詳閱我們的完整政策：<br>
-    <a href="https://www.freeprivacypolicy.com/live/792a17a4-f4e3-46bc-9134-852801d56deb" target="_blank">
-      查看隱私權政策</a>
+  <p class="intro-text">
+    歡迎來到 AIncome 支援中心，如果在使用過程中有任何問題，<br>
+    請參考下方常見問題或直接聯絡我們。
   </p>
 
+  <!-- Shortcuts Section -->
+  <h2 class="section-header">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+    </svg>
+    快速捷徑
+  </h2>
+  <p class="section-desc">透過 iOS 捷徑，從控制中心或主畫面直接進入記帳功能</p>
+
+  <div class="shortcuts-grid">
+    <a href="https://www.icloud.com/shortcuts/4952a350810541fda8a1ebd538ff8a2a" target="_blank" class="shortcut-card">
+      <div class="shortcut-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+          <line x1="12" y1="19" x2="12" y2="23"></line>
+          <line x1="8" y1="23" x2="16" y2="23"></line>
+        </svg>
+      </div>
+      <div class="shortcut-info">
+        <h3>語音記帳</h3>
+        <p>對著手機說，自動記錄</p>
+      </div>
+    </a>
+
+    <a href="https://www.icloud.com/shortcuts/644358c3fb5c4cc38bc56d1fb9a91ee2" target="_blank" class="shortcut-card">
+      <div class="shortcut-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+          <circle cx="12" cy="13" r="4"></circle>
+        </svg>
+      </div>
+      <div class="shortcut-info">
+        <h3>拍帳單記帳</h3>
+        <p>拍照掃描，輕鬆記錄</p>
+      </div>
+    </a>
+
+    <a href="https://www.icloud.com/shortcuts/61458471dd7d4a70a8d92d95f8fe2489" target="_blank" class="shortcut-card">
+      <div class="shortcut-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+        </svg>
+      </div>
+      <div class="shortcut-info">
+        <h3>文字記帳</h3>
+        <p>隨手輸入，快速記帳</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- FAQ Section -->
+  <h2 class="section-header">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+      <line x1="12" y1="17" x2="12.01" y2="17"></line>
+    </svg>
+    常見問題
+  </h2>
+
+  <dl class="faq" id="faqList">
+    <dt>如何申請 API 金鑰？</dt>
+    <dd>
+      請前往 <a href="https://platform.openai.com/api-keys"
+        target="_blank">platform.openai.com/api-keys</a>，登入或註冊後即可查看或建立新的 API 金鑰。<br><br>
+      API 金鑰僅在申請成功時顯示一次，請務必妥善保存，如遺失需重新申請。<br><br>
+      切勿將金鑰公開或托管於公開程式庫，以免造成資安風險。如有遺失或疑似外洩，請立即於 OpenAI 平台上刪除並重建新金鑰。<br><br>
+      <strong>提醒：申請完記得要儲錢進去喔！</strong>
+    </dd>
+
+    <dt>這個 App 一個月要花多少錢？</dt>
+    <dd>
+      如果你一個月呼叫 500 次「自然語言記帳」，再加上「分析」和「報告」各一次，大約只要<strong>美金 1 塊左右</strong>，也就是<strong>新台幣 30 元出頭</strong>。<br><br>
+      還可以透過批次呼叫（一句話講多一點商品）省更多，最多可壓到不到新台幣 20 元！
+    </dd>
+
+    <dt>如何使用自然語言記帳？</dt>
+    <dd>
+      在輸入框中輸入「今天午餐花 150 元」，App 即可自動解析並記錄。<br><br>
+      你也可以說：「昨天買咖啡 65 元、晚餐便當 85 元」這樣一次記多筆！
+    </dd>
+
+    <dt>為何無法解析句子？</dt>
+    <dd>
+      請確認句子包含完整的「品項」和「金額」資訊。<br><br>
+      若仍無法解析，可以嘗試長按「+」按鈕手動新增記錄。
+    </dd>
+
+    <dt>如何匯出 CSV？</dt>
+    <dd>在「設定」頁面點選「匯出 CSV 檔案」，即可下載完整的記帳資料。</dd>
+
+    <dt>如何設定訂閱自動扣款？</dt>
+    <dd>進入「設定 → 訂閱」新增訂閱名稱及金額，App 會自動每月新增訂閱支出記錄。</dd>
+  </dl>
+
+  <!-- Contact Section -->
+  <h2 class="section-header">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+      <polyline points="22,6 12,13 2,6"></polyline>
+    </svg>
+    聯絡我們
+  </h2>
+  <div class="contact-card">
+    <p>如果上述問題無法解決您的困難，歡迎來信：</p>
+    <a href="mailto:itjustforfb@gmail.com" class="email-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+      itjustforfb@gmail.com
+    </a>
+  </div>
+
+  <!-- Privacy Section -->
+  <h2 class="section-header">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+    </svg>
+    隱私權政策
+  </h2>
+  <div class="card">
+    <p>我們重視您的隱私，請詳閱我們的完整政策：</p>
+    <a href="https://www.freeprivacypolicy.com/live/792a17a4-f4e3-46bc-9134-852801d56deb" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+        <line x1="16" y1="13" x2="8" y2="13"></line>
+        <line x1="16" y1="17" x2="8" y2="17"></line>
+        <polyline points="10 9 9 9 8 9"></polyline>
+      </svg>
+      查看隱私權政策
+    </a>
+  </div>
+
+  <!-- Floating Download Button -->
+  <div class="floating-download">
+    <a href="https://apps.apple.com/app/id6745864525" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" />
+      </svg>
+      <span>下載 App</span>
+    </a>
+  </div>
+
+  <!-- Footer -->
   <footer>
-    &copy; 2025 AIncome. All rights reserved.
+    <div class="footer-links">
+      <a href="https://apps.apple.com/app/id6745864525" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+          <path
+            d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" />
+        </svg>
+        App Store
+      </a>
+      <a href="mailto:itjustforfb@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" width="16" height="16">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        聯絡我們
+      </a>
+      <a href="https://www.freeprivacypolicy.com/live/792a17a4-f4e3-46bc-9134-852801d56deb" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" width="16" height="16">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        隱私權政策
+      </a>
+    </div>
+    <p class="copyright">&copy; 2025 AIncome. All rights reserved.</p>
   </footer>
+
   <script>
     document.querySelectorAll('#faqList dt').forEach(dt => {
-      dt.style.cursor = 'pointer';
       dt.addEventListener('click', () => {
+        // Close all other expanded items
+        document.querySelectorAll('#faqList dt.expanded').forEach(openDt => {
+          if (openDt !== dt) {
+            openDt.classList.remove('expanded');
+            let sibling = openDt.nextElementSibling;
+            while (sibling && sibling.tagName === 'DD') {
+              sibling.style.display = 'none';
+              sibling = sibling.nextElementSibling;
+            }
+          }
+        });
+
+        // Toggle current item
         dt.classList.toggle('expanded');
         let next = dt.nextElementSibling;
         while (next && next.tagName === 'DD') {
@@ -112,4 +250,5 @@
     });
   </script>
 </body>
+
 </html>
